@@ -1,7 +1,7 @@
 const Utils = require("../utilities/Utils")
 const apiModel = require("./apimodel")
 const mApiModel = new apiModel();
-module.exports = new class UserController {
+module.exports = new class ApiController {
     createuser(req , response) {
         Utils.hashPassword(req.body.password , (v) => {
             mApiModel.registerUser(Utils.getRandomInt(10000000000, 99999999999) , req.body.email , req.body.username , v.salt , v.iterations , v.hash , callback => {
